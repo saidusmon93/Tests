@@ -6,6 +6,11 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/",
+    name: "Home",
+    beforeEnter: Auth,
+  },
+  {
     path: "/form",
     name: "Form",
     // route level code-splitting
