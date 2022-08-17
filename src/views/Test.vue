@@ -194,7 +194,10 @@ export default {
   },
   mounted() {
     this.userResponses = Array(this.tests.length).fill(null);
-    if (JSON.parse(localStorage.getItem("questions")).length) {
+    if (
+      JSON.parse(localStorage.getItem("questions")) === [] &&
+      JSON.parse(localStorage.getItem("questions")) === null
+    ) {
       this.$store.dispatch(
         "getQuestions",
         JSON.parse(localStorage.getItem("questions"))
@@ -203,7 +206,6 @@ export default {
     } else {
       this.$store.dispatch("getQuestions", this.list);
       localStorage.setItem("questions", JSON.stringify(this.list));
-      console.log(this.list);
     }
   },
   methods: {

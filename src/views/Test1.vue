@@ -145,7 +145,10 @@ export default {
   },
   mounted() {
     this.userRes = Array(this.questions.length).fill(null);
-    if (JSON.parse(localStorage.getItem("questWrite")).length) {
+    if (
+      JSON.parse(localStorage.getItem("questWrite")) === [] &&
+      JSON.parse(localStorage.getItem("questWrite")) === null
+    ) {
       this.$store.dispatch(
         "getQuestWrite",
         JSON.parse(localStorage.getItem("questWrite"))

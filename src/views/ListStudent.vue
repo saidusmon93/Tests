@@ -97,100 +97,21 @@ export default {
       phone: "",
       all: false,
       listStudents: [
-  {
-    text: "Vagonning tezlanishi 36000 km/h2 . Bu necha m/s2 ?",
-    responses: [
-      { text: "2,8 ", correct: true },
-      { text: "1,4", correct: false },
-      { text: "0,28", correct: false },
-    ],
-    id: 3,
-  },
-  {
-    text: "Mis va alyuminiy jismlarning hajmlari va impulslari teng. Ulardan qay birining tezligi kattaroq?",
-    responses: [
-      { text: "mis jismniki", correct: false },
-      { text: "alyuminiy jismniki", correct: true },
-      {
-        text: "agar ular shar shaklida bo‘lsa mis jismniki, kub shaklida bo‘lsa alyuminiy jismniki",
-        correct: false,
-      },
-    ],
-    id: 4,
-  },
-  {
-    text: "Issiqlik almashinuvi ro‘y bermaydigan termodinamik jarayon qaysi?",
-    responses: [
-      { text: "izotermik", correct: false },
-      { text: "adiabatik", correct: true },
-      { text: "izoxorik", correct: false },
-    ],
-    id: 5,
-  },
-  {
-    text: "Agar a + 1 son 3 ga qoldiqsiz bo‘linsa, 4 + 7a soni quyidagilardan qaysi biriga qoldiqsiz bo‘linadi (a ∈ N)?",
-    responses: [
-      { text: "11", correct: false },
-      { text: "7", correct: false },
-      { text: "3", correct: true },
-    ],
-    id: 6,
-  },
-  {
-    text: "Choose the correct answer. It is often . . . to look for solutions than run away from your problems.",
-    responses: [
-      { text: "easier", correct: true },
-      { text: "most easy", correct: false },
-      { text: "easiest", correct: false },
-    ],
-    id: 5,
-  },
-  {
-    text: "Choose the correct answer. − I like to attend evening lectures, and what about you, Feruza?",
-    responses: [
-      { text: "So does she", correct: false },
-      { text: "So do I", correct: true },
-      { text: "She likes too", correct: false },
-    ],
-    id: 6,
-  },
-  {
-    text: "Choose the correct answer. We have enough milk in the fridge so we . . . buy any more.",
-    responses: [
-      { text: "should", correct: false },
-      { text: "needn’t", correct: true },
-      { text: "can’t", correct: false },
-    ],
-    id: 7,
-  },
-  {
-    text: 'Choose the correct answer. "Do you play rugby?" said Peter.',
-    responses: [
-      { text: "Peter asked if I was playing rugby.", correct: false },
-      { text: "Peter wonders if you play rugby.", correct: false },
-      { text: "Peter wondered if I played rugby.", correct: true },
-    ],
-    id: 8,
-  },
-  {
-    text: "Choose the correct answer. I wonder if you could . . . me a small favour",
-    responses: [
-      { text: "make", correct: false },
-      { text: "do", correct: true },
-      { text: "create", correct: false },
-    ],
-    id: 9,
-  },
-  {
-    text: " Choose the correct answer. Would you mind if I . . . your book?",
-    responses: [
-      { text: "borrowed", correct: true },
-      { text: "borrows", correct: false },
-      { text: "would borrowed", correct: false },
-    ],
-    id: 10,
-  },
-]
+        {
+          firstName: "John",
+          lastName: "Doe",
+          phone: "+998901234567",
+          course: "Course_1",
+          id: 1,
+        },
+        {
+          firstName: "Alex",
+          lastName: "Alex",
+          phone: "+9989932165498",
+          course: "Course_3",
+          id: 2,
+        },
+      ],
     };
   },
   computed: {
@@ -221,7 +142,11 @@ export default {
     },
   },
   mounted() {
-    if (JSON.parse(localStorage.getItem("students")).length) {
+    console.log("mounted");
+    if (
+      JSON.parse(localStorage.getItem("students")) === [] &&
+      JSON.parse(localStorage.getItem("students")) !== null
+    ) {
       this.$store.dispatch(
         "getStudents",
         JSON.parse(localStorage.getItem("students"))
